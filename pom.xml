@@ -8,6 +8,21 @@
     <artifactId>maven-example</artifactId>
     <version>1.0.0</version>
 
+    <profiles>
+        <profile>
+            <id>production</id>
+            <activation>
+                <property>
+                    <name>env.PACKAGE_ENV</name>
+                    <value>PROD</value>
+                </property>
+            </activation>
+            <build>
+                <directory>production_release</directory>
+            </build>
+        </profile>
+    </profiles>
+
     <packaging>jar</packaging>
     <name>Learning Maven Examples</name>
     <description>This is a project used to demonstrate maven principles</description>
@@ -61,19 +76,19 @@
         </pluginManagement>
     </build>
 
-    <profiles>
-        <profile>
-            <id>production</id>
-            <activation>
-                <property>
-                    <name>env.PACKAGE_ENV</name>
-                    <value>PROD</value>
-                </property>
-            </activation>
-            <build>
-                <directory>production_by_env</directory>
-            </build>
-        </profile>
-    </profiles>
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            <id>production</id>-->
+<!--            <activation>-->
+<!--                <property>-->
+<!--                    <name>env.PACKAGE_ENV</name>-->
+<!--                    <value>PROD</value>-->
+<!--                </property>-->
+<!--            </activation>-->
+<!--            <build>-->
+<!--                <directory>production_by_env</directory>-->
+<!--            </build>-->
+<!--        </profile>-->
+<!--    </profiles>-->
     
 </project>
